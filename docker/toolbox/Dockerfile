@@ -1,4 +1,5 @@
-FROM alpine
-RUN apk add --no-cache curl wget busybox-extras netcat-openbsd python3 bash
-RUN apk add htop
-CMD tail -f /dev/null
+FROM ubuntu
+RUN apt-get update
+RUN apt-get install -y nginx
+RUN echo 'Hi, I am in your container' \
+        >/usr/share/nginx/html/index.html
